@@ -12,7 +12,7 @@ function Destination() {
     <>
       <section
         id="main"
-        className="grid-container grid-container--destination flow home destination"
+        className="grid-container grid-container--destination flow destination"
       >
         <article>
           <h1 className="numbered-title">
