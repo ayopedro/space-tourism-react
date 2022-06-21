@@ -1,13 +1,330 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Barlow:wght@400;700&family=Bellefair&display=swap');
+
+:root {
+    /* colors */
+
+    --clr-dark: 230, 35%, 7%;
+    --clr-light: 231, 77%, 90%;
+    --clr-white: 0, 0%, 100%;
+
+
+    /* font-sizes */
+    --fs-900: clamp(5rem, 7vw + 1rem , 9.375rem);
+    --fs-800: 3.5rem;
+    --fs-700: 1.5rem;
+    --fs-600: 1.25rem;
+    --fs-500: 1rem;
+    --fs-400: 0.9375rem;
+    --fs-300: 1rem;
+    --fs-200: 0.875rem;
+
+    /* font-families */
+    --ff-serif: "Bellefair", serif;
+    --ff-sans-cond: "Barlow Condensed", sans-serif;
+    --ff-sans-normal: "Barlow", sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@media (min-width: 35em) {
+    :root {
+        --fs-800: 5rem;
+        --fs-700: 2.5rem;
+        --fs-600: 1.5rem;
+        --fs-500: 1.25rem;
+        --fs-400: 1rem;
+    }
+}
+
+@media (min-width: 45em) {
+    :root {
+        --fs-800: 6.25rem;
+        --fs-700: 3rem;
+        --fs-600: 2rem;
+        --fs-500: 1.5rem;
+        --fs-400: 1rem;
+    }
+}
+
+/* ------------------------------------------------- */
+/* --------------------- RESET ------------------- */
+/* ------------------------------------------------- */
+
+/* box-sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;   
+}
+
+ /* reset margin */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+picture {
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 400;
+}
+
+/* set up the body */
+body {
+    font-family: var(--ff-sans-normal);
+    font-size: var(--fs-400);
+    color:hsl( var(--clr-white) );
+    font-weight: 400;
+    background-color: hsl( var(--clr-dark) );
+    line-height: 1.5;
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: min-content 1fr;
+    overflow-x: hidden;
+    background-size: cover;
+    background-position: bottom center;
+}
+
+/* makes images easier to work with */
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+/* makes form elements easier to work with */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* turn animations off for people who don't want them */
+
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+     scroll-behavior: auto;
+    }
+    
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* ------------------------------------------------- */
+/* --------------------- UTILITY ------------------- */
+/* ------------------------------------------------- */
+
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+
+.d-block {
+  display: block;
+}
+
+.flow > *:where(:not(:first-child)){
+  margin-top: var(--flow-space, 1rem);
+}
+
+.flow--space-small {
+  --flow-space: 0.5rem;
+}
+.container {
+  padding-inline: 2em;
+  max-width: 80rem;
+  margin-inline: auto;
+}
+
+
+/* for screen readers */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* added line */
+  border: 0;
+}
+.skip-to-content {
+  position: absolute;
+  z-index: 9999;
+  background-color: hsl( var(--clr-white) );
+  color: hsl( var(--clr-dark) );
+  padding: .5em 1em;
+  margin-inline: auto;
+  transform: translateY(-100%);
+  transition: transform 250ms ease-in-out;
+}
+
+.skip-to-content:focus {
+  transform: translateY(0);
+}
+
+/* ------------------------------------------------- */
+/* --------------------- colors ------------------- */
+/* ------------------------------------------------- */
+
+.bg-dark { background-color: hsl( var(--clr-dark) );}
+.bg-accent { background-color: hsl( var(--clr-light) );}
+.bg-white { background-color: hsl( var(--clr-white) );}
+
+.text-dark { color: hsl( var(--clr-dark) );}
+.text-accent { color: hsl( var(--clr-light) );}
+.text-white { color: hsl( var(--clr-white) );}
+
+/* ------------------------------------------------- */
+/* -------------------- typography ----------------- */
+/* ------------------------------------------------- */
+
+.ff-serif { font-family: var(--ff-serif); }
+.ff-sans-cond { font-family: var(--ff-sans-cond); }
+.ff-sans-normal { font-family: var(--ff-sans-normal); }
+
+.letter-spacing-1 { letter-spacing: 4.75px; }
+.letter-spacing-2 { letter-spacing: 2.7px; }
+.letter-spacing-3 { letter-spacing: 2.35px; }
+
+.uppercase { text-transform: uppercase; }
+
+.fs-900 { font-size: var(--fs-900); }
+.fs-800 { font-size: var(--fs-800); }
+.fs-700 { font-size: var(--fs-700); }
+.fs-600 { font-size: var(--fs-600); }
+.fs-500 { font-size: var(--fs-500); }
+.fs-400 { font-size: var(--fs-400); }
+.fs-300 { font-size: var(--fs-300); }
+.fs-200 { font-size: var(--fs-200); }
+
+.fs-900,
+.fs-800,
+.fs-700,
+.fs-600 {
+    line-height: 1.1;
+}
+
+.numbered-title {
+    text-transform: uppercase;
+    font-family: var(--ff-sans-cond);
+    font-size: var(--fs-500);
+    letter-spacing: 4.72px;
+}
+
+.numbered-title span {
+    margin-right: 0.5em;
+    font-weight: 700;
+    color: hsla( var(--clr-white), 0.25);
+}
+
+/* ------------------------------------------------- */
+/* -----------------    COMPONENTS     ------------- */
+/* ------------------------------------------------- */
+
+.large-button {
+  font-size: 2rem;
+  display: inline-grid;
+  position: relative;
+  z-index: 1;
+  border-radius: 50%;
+  place-items: center;
+  padding: 0 2em;
+  aspect-ratio: 1;
+  text-decoration: none;
+}
+.large-button::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  background: hsla( var(--clr-white), 0.15) ;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transition: opacity 500ms linear, transform 750ms ease-in-out;
+  opacity: 0;
+}
+
+.large-button:hover::after,
+.large-button:focus::after {
+  transform: scale(1.5);
+  opacity: 1;
+}
+
+.grid-container {
+  display: grid;
+  text-align: center;
+  place-items: center;
+  padding-inline: 1rem;
+  padding-top: 150px;
+  padding-bottom: 3rem;
+}
+
+.grid-container p:not([class]) {
+  max-width: 50ch;
+}
+
+.numbered-title {
+  grid-area: title;
+}
+
+.underline-indicators > * {
+  border: 0;
+  border-bottom: 0.2rem solid hsla(var(--clr-white), 0);
+  cursor: pointer;
+  padding: var(--underline-gap, 0.75rem) 0;
+  background-color: transparent;
+}
+
+.underline-indicators > *:hover,
+.underline-indicators > *:focus {
+  border-color: hsla(var(--clr-white), 0.5);
+}
+
+.underline-indicators > *.active {
+  border-color: hsla(var(--clr-white), 1);
+  color: hsla(var(--clr-white), 1);
+}
+
+.number-indicators > * {
+  border: 1.3px solid hsla( var(--clr-white),0.5 );
+  border-radius: 50%;
+  aspect-ratio: 1;
+  width: 100%;
+  cursor: pointer;
+  padding: .5em;
+  background-color: transparent;
+  color: hsl( var(--clr-white) );
+}
+
+.number-indicators > *:hover,
+.number-indicators > *:focus {
+  border-color: hsla( var(--clr-white), 1);
 }
