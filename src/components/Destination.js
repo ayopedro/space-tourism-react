@@ -12,16 +12,18 @@ function Destination() {
     <>
       <section
         id="main"
-        className="grid-container grid-container--destination flow flex destination"
+        className="grid-container grid-container--destination flow destination"
       >
         <article>
           <h1 className="numbered-title">
             <span aria-hidden="true">01 </span>Pick your destination
           </h1>
-          <img src={images.png} alt={name} title={name} className="image" />
+          <div className="image">
+            <img src={images.png} alt={name} title={name}  />
+          </div>
         </article>
         <article>
-          <div>
+          <div className="destination-tab">
             <ul className="tab-list underline-indicators flex">
               {planets.map((item, index) => (
                 <li key={index}>
@@ -39,7 +41,7 @@ function Destination() {
           </div>
 
           <h2 className="fs-800 uppercase ff-serif">{name}</h2>
-          <p>{description}</p>
+          <p className="destination-desc">{description}</p>
 
           <div className="destination-meta flex">
             <div>

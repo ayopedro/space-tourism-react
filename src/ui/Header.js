@@ -1,4 +1,3 @@
-import React from "react";
 import logo from "../starter-code/assets/shared/logo.svg";
 import { NavLink } from "react-router-dom";
 import "../styles/Header.css";
@@ -41,7 +40,7 @@ function Header() {
             <NavLink
               className={`ff-sans-cond uppercase text-white letter-spacing-2`}
               to="/"
-              exact='true'
+              exact="true"
             >
               <span aria-hidden="true">00</span>Home
             </NavLink>

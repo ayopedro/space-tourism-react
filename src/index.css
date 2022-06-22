@@ -287,6 +287,7 @@ button {
   padding-bottom: 3rem;
 }
 
+
 .grid-container p:not([class]) {
   max-width: 50ch;
 }
@@ -319,7 +320,7 @@ button {
   aspect-ratio: 1;
   width: 100%;
   cursor: pointer;
-  padding: .5em;
+  padding: .3rem;
   background-color: transparent;
   color: hsl( var(--clr-white) );
 }
