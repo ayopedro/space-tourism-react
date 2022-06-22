@@ -6,6 +6,9 @@
 
 ul {
   padding: 0;
+  display: flex;
+  align-items: flex-end;
+  gap: 15px;
 }
 
 .grid-container--technology {
@@ -28,6 +31,7 @@ ul {
 
 .grid-container--technology > .number-indicators {
   grid-area: tabs;
+  
 }
 
 .grid-container--technology > .technology-content {

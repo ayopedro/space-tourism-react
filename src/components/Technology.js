@@ -13,7 +13,7 @@ function Technology() {
         <h1 className="numbered-title">
           <span aria-hidden="true">03 </span>Space launch 101
         </h1>
-        <ul className="number-indicators flex flow">
+        <ul className="number-indicators flow">
           {technology.map((item, index) => (
             <li key={index}>
               <button
