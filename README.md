@@ -3,7 +3,7 @@
 # Frontend Mentor - Space tourism website
 
 ![Design preview for the Space tourism website coding challenge] 
-
+<img width="883" alt="Screenshot 2022-06-22 at 10 03 16" src="https://user-images.githubusercontent.com/93743034/174991040-537b89cf-e206-4209-84f7-1582a8d412b3.png">
 ## Welcome! 👋
 
 [Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects. Our challenges are perfect portfolio pieces, so please feel free to use what you create in your portfolio to show others.
