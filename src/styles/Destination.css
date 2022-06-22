@@ -12,6 +12,7 @@
     "image"
     "tabs"
     "content";
+    max-width: 100vw;
 }
 
 .grid-container--destination > picture {
